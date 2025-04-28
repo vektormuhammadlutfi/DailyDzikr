@@ -11,7 +11,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ dhikrList }) => {
   
   // Calculate total progress
   const completedCount = dhikrList.filter(dhikr => 
-    (progress[dhikr.id] || 0) >= dhikr.repetition
+    (progress[dhikr.id]?.count || 0) >= dhikr.repetition
   ).length;
   
   const totalCount = dhikrList.length;
@@ -23,7 +23,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ dhikrList }) => {
         <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
           Progress
         </span>
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+        <span className="text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors duration-300">
           {completedCount}/{totalCount} ({Math.round(progressPercentage)}%)
         </span>
       </div>

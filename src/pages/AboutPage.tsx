@@ -47,7 +47,7 @@ const AboutPage: React.FC = () => {
           <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
             <h4 className="font-medium text-gray-800 dark:text-gray-100 mb-2">Pengembang</h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Aplikasi ini dikembangkan sebagai proyek open-source untuk memudahkan ibadah sehari-hari umat Islam.
+              Aplikasi ini dikembangkan sebagai proyek open-source untuk memudahkan ibadah sehari-hari umat Islam. Dibuat oleh Abu Uwais.
             </p>
             
             <a 

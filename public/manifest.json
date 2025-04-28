@@ -4,18 +4,18 @@
   "icons": [
     {
       "src": "/icons/icon-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
       "src": "/icons/icon-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
-  "background_color": "#10B981",
-  "description": "Aplikasi Dzikir Pagi dan Petang",
-  "display": "standalone",
   "start_url": "/",
-  "theme_color": "#10B981"
+  "display": "standalone",
+  "background_color": "#10B981",
+  "theme_color": "#10B981",
+  "description": "Aplikasi Dzikir Pagi dan Petang"
 }
