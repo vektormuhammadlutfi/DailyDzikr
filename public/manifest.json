@@ -1,0 +1,21 @@
+{
+  "name": "Daily Dzikr",
+  "short_name": "Dzikr",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#10B981",
+  "description": "Aplikasi Dzikir Pagi dan Petang",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#10B981"
+}
