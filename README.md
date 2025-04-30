@@ -99,4 +99,4 @@ Jazakumullahu khairan.
 [MIT](LICENSE)
 
 Dibuat oleh Abu Uwais.
-```
+``` / cxZ 1q

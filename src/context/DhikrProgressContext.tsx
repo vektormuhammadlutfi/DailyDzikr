@@ -12,7 +12,7 @@ interface DhikrProgress {
 interface ProgressContextType {
   progress: DhikrProgress;
   updateProgress: (id: string, count: number) => void;
-  resetProgress: (time?: 'pagi' | 'petang') => void;
+  resetProgress: (time?: 'morning' | 'evening') => void;
   checkAndResetDaily: () => void;
 }
 
@@ -82,11 +82,19 @@ export const DhikrProgressProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
-  const resetProgress = (time?: 'pagi' | 'petang') => {
+  const resetProgress = (time?: 'morning' | 'evening') => {
     if (time) {
       const newProgress = { ...progress };
       Object.keys(newProgress).forEach(key => {
-        if (data.dzikr.find(d => d.id.toString() === key && d.time === time)) {
+        // Define the data object and type for dzikr
+        const data = {
+          dzikr: [
+            { id: 1, time: 'morning' },
+            { id: 2, time: 'evening' }
+          ]
+        };
+        
+                if (data.dzikr.find((d: { id: number; time: string }) => d.id.toString() === key && d.time === time)) {
           delete newProgress[key];
         }
       });
