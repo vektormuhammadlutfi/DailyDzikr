@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Sun, Moon, Info } from 'lucide-react';
+import { Home, Sun, Moon, HandHeart, Info } from 'lucide-react';
 
 const Navigation: React.FC = () => {
   const location = useLocation();
@@ -20,22 +20,27 @@ const Navigation: React.FC = () => {
         <div className="flex justify-around items-center h-16">
           <Link to="/" className={getLinkClass('/')} aria-label="Home">
             <Home size={20} className="mb-1" />
-            <span>Beranda</span>
+            <span className="text-xs">Beranda</span>
           </Link>
           
           <Link to="/morning" className={getLinkClass('/morning')} aria-label="Morning Dhikr">
             <Sun size={20} className="mb-1" />
-            <span>Pagi</span>
+            <span className="text-xs">Pagi</span>
           </Link>
           
           <Link to="/evening" className={getLinkClass('/evening')} aria-label="Evening Dhikr">
             <Moon size={20} className="mb-1" />
-            <span>Petang</span>
+            <span className="text-xs">Petang</span>
+          </Link>
+          
+          <Link to="/after-prayer" className={getLinkClass('/after-prayer')} aria-label="After Prayer Dhikr">
+            <HandHeart size={20} className="mb-1" />
+            <span className="text-xs">Shalat</span>
           </Link>
           
           <Link to="/about" className={getLinkClass('/about')} aria-label="About">
             <Info size={20} className="mb-1" />
-            <span>Info</span>
+            <span className="text-xs">Info</span>
           </Link>
         </div>
       </div>

@@ -18,7 +18,7 @@ export interface Dhikr {
     id: string;
   };
   note: string;
-  time: 'morning' | 'evening' | 'both';
+  time: 'morning' | 'evening' | 'both' | 'after-prayer';
 }
 
 export interface UserPreferences {

@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
+import { dhikrData } from '../data/dhikrData';
 
 interface DhikrProgress {
   [id: string]: {
@@ -12,7 +13,7 @@ interface DhikrProgress {
 interface ProgressContextType {
   progress: DhikrProgress;
   updateProgress: (id: string, count: number) => void;
-  resetProgress: (time?: 'morning' | 'evening') => void;
+  resetProgress: (time?: 'morning' | 'evening' | 'after-prayer') => void;
   checkAndResetDaily: () => void;
 }
 
@@ -82,19 +83,12 @@ export const DhikrProgressProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
-  const resetProgress = (time?: 'morning' | 'evening') => {
+  const resetProgress = (time?: 'morning' | 'evening' | 'after-prayer') => {
     if (time) {
       const newProgress = { ...progress };
       Object.keys(newProgress).forEach(key => {
-        // Define the data object and type for dzikr
-        const data = {
-          dzikr: [
-            { id: 1, time: 'morning' },
-            { id: 2, time: 'evening' }
-          ]
-        };
-        
-                if (data.dzikr.find((d: { id: number; time: string }) => d.id.toString() === key && d.time === time)) {
+        const dhikr = dhikrData.find(d => d.id === key);
+        if (dhikr && (dhikr.time === time || dhikr.time === 'both')) {
           delete newProgress[key];
         }
       });

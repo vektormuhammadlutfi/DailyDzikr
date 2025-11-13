@@ -53,7 +53,8 @@ export const dhikrData: Dhikr[] = [
     arabic: 'أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَـهَ إِلَّا اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرٌ. رَبِّ أَسْأَلُكَ خَيْرَ مَا فِيْ هَذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ، وَأَعُوْدُ بِكَ مِنْ شَرِّ مَا فِيْ هَذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوْدُ بِكَ مِنَ الْكَسَلِ وَسُوْءِ الْكِبَرِ، رَبِّ أَعُوْدُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ',
     transliteration: 'Ash-bahnaa wa asbahal mulku lillah walhamdu lillah, la ilaha illallah wahdahu la sharika lah, lahul mulku walahul hamdu wa huwa \'ala kulli shay\'in qadir. Rabbi as\'aluka khayra ma fi hadhal yawmi wa khayra ma ba\'dahu, wa a\'udhu bika min sharri ma fi hadhal yawmi wa sharri ma ba\'dahu, Rabbi a\'udhu bika minal kasali wa su\'il kibari, Rabbi a\'udhu bika min \'adhabin fin nari wa \'adhabin fil qabri',
     translation: {
-      en: 'Kami telah memasuki waktu pagi dan kerajaan hanya milik Allah, segala puji bagi Allah. Tidak ada ilah yang berhak disembah kecuali Allah semata, tiada sekutu bagi-Nya. Milik Allah kerajaan dan bagi-Nya pujian. Dia-lah Yang Mahakuasa atas segala sesuatu. Wahai Rabbku, aku mohon kepada-Mu kebaikan di hari ini dan kebaikan sesudahnya. Aku berlindung kepada-Mu dari kejahatan hari ini dan kejahatan sesudahnya. Wahai Rabbku, aku berlindung kepada-Mu dari kemalasan dan kejelekan di hari tua. Wahai Rabbku, aku berlindung kepada-Mu dari siksaan di neraka dan siksaan di alam kubur.'
+      en: 'Kami telah memasuki waktu pagi dan kerajaan hanya milik Allah, segala puji bagi Allah. Tidak ada ilah yang berhak disembah kecuali Allah semata, tiada sekutu bagi-Nya. Milik Allah kerajaan dan bagi-Nya pujian. Dia-lah Yang Mahakuasa atas segala sesuatu. Wahai Rabbku, aku mohon kepada-Mu kebaikan di hari ini dan kebaikan sesudahnya. Aku berlindung kepada-Mu dari kejahatan hari ini dan kejahatan sesudahnya. Wahai Rabbku, aku berlindung kepada-Mu dari kemalasan dan kejelekan di hari tua. Wahai Rabbku, aku berlindung kepada-Mu dari siksaan di neraka dan siksaan di alam kubur.',
+      id: 'Kami telah memasuki waktu pagi dan kerajaan hanya milik Allah, segala puji bagi Allah. Tidak ada ilah yang berhak disembah kecuali Allah semata, tiada sekutu bagi-Nya. Milik Allah kerajaan dan bagi-Nya pujian. Dia-lah Yang Mahakuasa atas segala sesuatu. Wahai Rabbku, aku mohon kepada-Mu kebaikan di hari ini dan kebaikan sesudahnya. Aku berlindung kepada-Mu dari kejahatan hari ini dan kejahatan sesudahnya. Wahai Rabbku, aku berlindung kepada-Mu dari kemalasan dan kejelekan di hari tua. Wahai Rabbku, aku berlindung kepada-Mu dari siksaan di neraka dan siksaan di alam kubur.'
     },
     source: '',
     repetition: 1,
@@ -256,12 +257,124 @@ export const dhikrData: Dhikr[] = [
     repetition: 3,
     faedah: {
       en: 'Siapa yang mengucapkannya di petang hari, niscaya tidak ada racun atau binatang (seperti: kalajengking) yang mencelakannya di malam itu.',
-      id: '[HR. Ahmad 2: 290. Syaikh Syu’aib Al Arnauth mengatakan bahwa sanad hadits ini shahih sesuai syarat Muslim.]'
+      id: '[HR. Ahmad 2: 290. Syaikh Syu\'aib Al Arnauth mengatakan bahwa sanad hadits ini shahih sesuai syarat Muslim.]'
     },
     note: 'Dibaca 3x di petang hari.',
     time: 'evening'
+  },
+  // Dzikir Setelah Shalat
+  {
+    id: 'istighfar-after-prayer',
+    title: {
+      en: 'Istighfar after prayer',
+      id: 'Istighfar setelah shalat'
+    },
+    arabic: 'أَسْتَغْفِرُ اللهَ (ثَلاَثًا). اَللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَاْلإِكْرَامِ',
+    transliteration: 'Astaghfirullah (3x). Allahumma antassalaam wa minkassalaam, tabaarokta yaa dzal jalaali wal ikroom',
+    translation: {
+      en: 'Aku memohon ampun kepada Allah (3x). Ya Allah, Engkaulah yang memberi keselamatan, dan dari-Mu keselamatan, Maha Suci Engkau, wahai Dzat yang memiliki keagungan dan kemuliaan.',
+      id: 'Aku memohon ampun kepada Allah (3x). Ya Allah, Engkaulah yang memberi keselamatan, dan dari-Mu keselamatan, Maha Suci Engkau, wahai Dzat yang memiliki keagungan dan kemuliaan.'
+    },
+    source: '',
+    narrator: 'HR. Muslim no. 591',
+    repetition: 1,
+    faedah: {
+      en: 'Dzikir yang diucapkan Rasulullah SAW setelah mengucapkan salam dari shalat.',
+      id: 'Dzikir yang diucapkan Rasulullah SAW setelah mengucapkan salam dari shalat.'
+    },
+    note: 'Dibaca 1x setelah shalat',
+    time: 'after-prayer'
+  },
+  {
+    id: 'tasbih-tahmid-takbir',
+    title: {
+      en: 'Tasbih, Tahmid, and Takbir',
+      id: 'Tasbih, Tahmid, dan Takbir'
+    },
+    arabic: 'سُبْحَانَ اللهِ (33x)\nاَلْحَمْدُ ِللهِ (33x)\nاَللهُ أَكْبَرُ (33x)',
+    transliteration: 'Subhanallah (33x)\nAlhamdulillah (33x)\nAllahu Akbar (33x)',
+    translation: {
+      en: 'Maha Suci Allah (33x)\nSegala puji bagi Allah (33x)\nAllah Maha Besar (33x)',
+      id: 'Maha Suci Allah (33x)\nSegala puji bagi Allah (33x)\nAllah Maha Besar (33x)'
+    },
+    source: '',
+    narrator: 'HR. Muslim no. 597',
+    repetition: 33,
+    faedah: {
+      en: 'Barangsiapa yang bertasbih kepada Allah setelah setiap shalat sebanyak 33 kali, bertahmid 33 kali, bertakbir 33 kali, maka itu semua berjumlah 99. Kemudian menyempurnakan seratus dengan membaca: Laa ilaaha illallaahu wahdahu laa syariikalahu, lahul mulku wa lahul hamdu wa huwa \'alaa kulli syai-in qodiir (Tidak ada sesembahan yang haq selain Allah semata, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan pujian. Dia Mahakuasa atas segala sesuatu), maka diampuni kesalahannya walaupun sebanyak buih di lautan.',
+      id: 'Barangsiapa yang bertasbih kepada Allah setelah setiap shalat sebanyak 33 kali, bertahmid 33 kali, bertakbir 33 kali, maka itu semua berjumlah 99. Kemudian menyempurnakan seratus dengan membaca: Laa ilaaha illallaahu wahdahu laa syariikalahu, lahul mulku wa lahul hamdu wa huwa \'alaa kulli syai-in qodiir (Tidak ada sesembahan yang haq selain Allah semata, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan pujian. Dia Mahakuasa atas segala sesuatu), maka diampuni kesalahannya walaupun sebanyak buih di lautan.'
+    },
+    note: 'Masing-masing dibaca 33x',
+    time: 'after-prayer'
+  },
+  {
+    id: 'tahlil-after-tasbih',
+    title: {
+      en: 'Tahlil to complete 100',
+      id: 'Tahlil untuk menyempurnakan 100'
+    },
+    arabic: 'لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
+    transliteration: 'Laa ilaaha illallahu wahdahu laa syariikalahu, lahul mulku walahul hamdu wa huwa \'ala kulli syai-in qodiir',
+    translation: {
+      en: 'Tidak ada sesembahan yang haq selain Allah semata, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan pujian. Dia Mahakuasa atas segala sesuatu.',
+      id: 'Tidak ada sesembahan yang haq selain Allah semata, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan pujian. Dia Mahakuasa atas segala sesuatu.'
+    },
+    source: '',
+    narrator: 'HR. Muslim no. 597',
+    repetition: 1,
+    faedah: {
+      en: 'Menyempurnakan hitungan dzikir menjadi 100 kali setelah shalat.',
+      id: 'Menyempurnakan hitungan dzikir menjadi 100 kali setelah shalat.'
+    },
+    note: 'Dibaca 1x setelah tasbih, tahmid, takbir',
+    time: 'after-prayer'
+  },
+  {
+    id: 'ayat-kursi-after-prayer',
+    title: {
+      en: 'Reading Ayat Kursi',
+      id: 'Membaca Ayat Kursi'
+    },
+    arabic: 'اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ، لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ، لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ، مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ، يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ، وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ، وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ، وَلَا يَئُودُهُ حِفْظُهُمَا، وَهُوَ الْعَلِيُّ الْعَظِيمُ',
+    transliteration: 'Allahu la ilaha illa huwal hayyul qayyum, la ta\'khudhuhu sinatun wa la nawm, lahu ma fis samawati wa ma fil ard, man dhalladhi yashfau indahu illa bi idhnih, ya\'lamu ma bayna aydihim wa ma khalfahum, wa la yuhituna bi shayin min ilmihi illa bima sha\', wasia kursiyyuhus samawati wal ard, wa la ya\'uduhu hifdhuhuma, wa huwal aliyyul adzim',
+    translation: {
+      en: 'Allah! There is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.',
+      id: 'Allah, tidak ada ilah (yang berhak disembah) melainkan Dia, yang hidup kekal lagi terus menerus mengurus (makhluk-Nya). Dia tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi. Tiada yang dapat memberi syafa\'at di sisi-Nya tanpa seizin-Nya. Dia mengetahui apa-apa yang di hadapan mereka dan di belakang mereka. Mereka tidak mengetahui apa-apa dari ilmu Allah melainkan apa yang dikehendaki-Nya. Kursi Allah meliputi langit dan bumi. Dia tidak merasa berat memelihara keduanya. Dan Dia Maha Tinggi lagi Maha besar.'
+    },
+    source: 'Q.S. Al-Baqarah: 255',
+    narrator: 'HR. An-Nasa\'i 9912, dishahihkan Al-Albani dalam Shahih An-Nasa\'i',
+    repetition: 1,
+    faedah: {
+      en: 'Barangsiapa membaca Ayat Kursi setiap selesai shalat fardhu, maka tidak ada yang menghalanginya masuk surga kecuali kematian.',
+      id: 'Barangsiapa membaca Ayat Kursi setiap selesai shalat fardhu, maka tidak ada yang menghalanginya masuk surga kecuali kematian.'
+    },
+    note: 'Dibaca 1x setelah shalat',
+    time: 'after-prayer'
+  },
+  {
+    id: 'surah-ikhlas-after-prayer',
+    title: {
+      en: 'Reading Surah Al-Ikhlas, Al-Falaq, and An-Nas',
+      id: 'Membaca Surah Al-Ikhlas, Al-Falaq, dan An-Nas'
+    },
+    arabic: 'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ\nقُلْ هُوَ اللَّهُ أَحَدٌ . اللَّهُ الصَّمَدُ . لَمْ يَلِدْ وَلَمْ يُولَدْ . وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ\n\nبِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ\nقُلْ أَعُوذُ بِرَبِّ الْفَلَقِ . مِن شَرِّ مَا خَلَقَ . وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ . وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ . وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ\n\nبِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ\nقُلْ أَعُوذُ بِرَبِّ النَّاسِ . مَلِكِ النَّاسِ . إِلَهِ النَّاسِ . مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ . الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ . مِنَ الْجِنَّةِ وَالنَّاسِ',
+    transliteration: "Bismillahir Rahmanir Rahim. Qul huwallahu ahad. Allahus-samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.\n\nBismillahir Rahmanir Rahim. Qul a'udhu birabbil-falaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharrin-naffathati fil-'uqad. Wa min sharri hasidin idha hasad.\n\nBismillahir Rahmanir Rahim. Qul a'udhu birabbin-nas. Malikin-nas. Ilahin-nas. Min sharril-waswasil-khannas. Alladhi yuwaswisu fi sudurin-nas. Minal-jinnati wan-nas.",
+    translation: {
+      en: 'In the name of Allah, the Most Gracious, the Most Merciful. Say, "He is Allah, [who is] One, Allah, the Eternal Refuge. He neither begets nor is born, nor is there to Him any equivalent." In the name of Allah, the Most Gracious, the Most Merciful. Say, "I seek refuge in the Lord of daybreak from the evil of that which He created and from the evil of darkness when it settles and from the evil of the blowers in knots and from the evil of an envier when he envies." In the name of Allah, the Most Gracious, the Most Merciful. Say, "I seek refuge in the Lord of mankind, the Sovereign of mankind, the God of mankind, from the evil of the retreating Whisperer - who whispers in the breasts of mankind - of jinn and mankind."',
+      id: 'Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang. Katakanlah: Dialah Allah, Yang Maha Esa. Allah adalah ilah yang bergantung kepada-Nya segala urusan. Dia tidak beranak dan tiada pula diperanakkan, dan tidak ada seorang pun yang setara dengan Dia. Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang. Katakanlah: Aku berlindung kepada Rabb yang menguasai Shubuh, dari kejahatan makhluk-Nya, dan dari kejahatan malam apabila telah gelap gulita, dan dari kejahatan-kejahatan wanita tukang sihir yang menghembus pada buhul-buhul, dan dari kejahatan orang yang dengki apabila ia dengki. Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang. Katakanlah: Aku berlindung kepada Rabb manusia. Raja manusia. Sembahan manusia, dari kejahatan (bisikan) syaitan yang biasa bersembunyi, yang membisikkan (kejahatan) ke dalam dada manusia, dari jin dan manusia.'
+    },
+    source: '',
+    narrator: 'HR. Abu Daud no. 1523, dishahihkan Al-Albani dalam Shahih Abu Daud',
+    repetition: 1,
+    faedah: {
+      en: 'Membaca ketiga surat ini setelah shalat Maghrib dan Subuh masing-masing 3 kali akan mencukupi dari segala sesuatu.',
+      id: 'Membaca ketiga surat ini setelah shalat Maghrib dan Subuh masing-masing 3 kali akan mencukupi dari segala sesuatu.'
+    },
+    note: 'Dibaca 1x setelah shalat (3x setelah Subuh & Maghrib)',
+    time: 'after-prayer'
   }
 ];
 
 export const getMorningDhikr = () => dhikrData.filter(dhikr => dhikr.time === 'morning' || dhikr.time === 'both');
 export const getEveningDhikr = () => dhikrData.filter(dhikr => dhikr.time === 'evening' || dhikr.time === 'both');
+export const getAfterPrayerDhikr = () => dhikrData.filter(dhikr => dhikr.time === 'after-prayer');

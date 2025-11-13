@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { PreferencesProvider } from './context/PreferencesContext';
 import { DhikrProgressProvider } from './context/DhikrProgressContext';
@@ -7,6 +6,7 @@ import Navigation from './components/Navigation';
 import HomePage from './pages/HomePage';
 import MorningDhikrPage from './pages/MorningDhikrPage';
 import EveningDhikrPage from './pages/EveningDhikrPage';
+import AfterPrayerDhikrPage from './pages/AfterPrayerDhikrPage';
 import SettingsPage from './pages/SettingsPage';
 import AboutPage from './pages/AboutPage';
 
@@ -22,6 +22,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/morning" element={<MorningDhikrPage />} />
                 <Route path="/evening" element={<EveningDhikrPage />} />
+                <Route path="/after-prayer" element={<AfterPrayerDhikrPage />} />
                 <Route path="/settings" element={<SettingsPage />} />
                 <Route path="/about" element={<AboutPage />} />
               </Routes>

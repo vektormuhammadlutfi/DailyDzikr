@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, HandHeart } from 'lucide-react';
+import PrayerTimeAlert from '../components/PrayerTimeAlert';
+import NearbyMosques from '../components/NearbyMosques';
 
 const HomePage: React.FC = () => {
   const currentTime = new Date();
@@ -21,22 +23,32 @@ const HomePage: React.FC = () => {
           <p className="text-gray-600 dark:text-gray-400 max-w-md mb-6">
             Aplikasi Dzikir Pagi dan Petang untuk membantu Anda mengingat Allah di pagi dan petang hari
           </p>
+        </div>
+
+        {/* Prayer Time Alert Box */}
+        <div className="mb-6">
+          <PrayerTimeAlert />
+        </div>
+
+        {/* Nearby Mosques Map */}
+        <div className="mb-8">
+          <NearbyMosques />
+        </div>
           
-          <div className="w-full max-w-md bg-emerald-50 dark:bg-emerald-900/20 rounded-lg p-4 border border-emerald-200 dark:border-emerald-800 mb-8">
-            <p className="text-gray-700 dark:text-gray-300 mb-2">
-              Berdasarkan waktu saat ini, kami menyarankan:
-            </p>
-            <Link 
-              to={`/${suggestedDhikr}`}
-              className="flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-6 rounded-md transition-colors duration-200 w-full"
-            >
-              {suggestedIcon}
-              <span>{suggestedDhikrLabel}</span>
-            </Link>
-          </div>
+        <div className="w-full max-w-3xl mx-auto bg-emerald-50 dark:bg-emerald-900/20 rounded-lg p-4 border border-emerald-200 dark:border-emerald-800 mb-8">
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
+            Berdasarkan waktu saat ini, kami menyarankan:
+          </p>
+          <Link 
+            to={`/${suggestedDhikr}`}
+            className="flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-6 rounded-md transition-colors duration-200 w-full"
+          >
+            {suggestedIcon}
+            <span>{suggestedDhikrLabel}</span>
+          </Link>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Link 
             to="/morning" 
             className="flex items-center p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800 hover:bg-amber-100 dark:hover:bg-amber-900/30 transition-colors"
@@ -60,6 +72,19 @@ const HomePage: React.FC = () => {
             <div className="ml-4">
               <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Dzikir Petang</h2>
               <p className="text-sm text-gray-600 dark:text-gray-400">Dibaca setelah Sholat Ashar hingga terbenam matahari</p>
+            </div>
+          </Link>
+          
+          <Link 
+            to="/after-prayer" 
+            className="flex items-center p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-colors"
+          >
+            <div className="flex-shrink-0 bg-emerald-100 dark:bg-emerald-800 p-3 rounded-full">
+              <HandHeart className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
+            </div>
+            <div className="ml-4">
+              <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Dzikir Setelah Shalat</h2>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Dibaca setiap selesai shalat fardhu (5 waktu)</p>
             </div>
           </Link>
         </div>
