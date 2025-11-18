@@ -72,7 +72,6 @@ const HomePage: React.FC = () => {
         
         <div className="mt-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl border-2 border-gray-200 dark:border-gray-700 shadow-lg">
           <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
-            <span className="mr-2">\ud83d\udcda</span>
             Tentang Dzikir
           </h2>
           <p className="text-gray-700 dark:text-gray-300 mb-4">
