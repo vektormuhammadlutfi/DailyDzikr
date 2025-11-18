@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { PreferencesProvider } from './context/PreferencesContext';
 import { DhikrProgressProvider } from './context/DhikrProgressContext';
+import { StreakProvider } from './context/StreakContext';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import HomePage from './pages/HomePage';
@@ -14,7 +15,8 @@ function App() {
   return (
     <PreferencesProvider>
       <DhikrProgressProvider>
-        <Router>
+        <StreakProvider>
+          <Router>
           <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
             <Header />
             <main className="pb-16">
@@ -30,6 +32,7 @@ function App() {
             <Navigation />
           </div>
         </Router>
+        </StreakProvider>
       </DhikrProgressProvider>
     </PreferencesProvider>
   );

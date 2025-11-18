@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, MapPin, Bell } from 'lucide-react';
+import { Clock, MapPin, Bell, Sun, Moon } from 'lucide-react';
 import { Coordinates, CalculationMethod, PrayerTimes } from 'adhan';
+import { Link } from 'react-router-dom';
 
 interface PrayerTime {
   name: string;
@@ -197,6 +198,30 @@ const PrayerTimeAlert: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Dhikr Suggestion Based on Time */}
+        <div className="mt-4 pt-4 border-t border-white/20">
+          <p className="text-sm opacity-90 mb-2">
+            Berdasarkan waktu saat ini, kami menyarankan:
+          </p>
+          {(() => {
+            const currentHour = new Date().getHours();
+            const isMorning = currentHour >= 4 && currentHour < 12;
+            const suggestedDhikr = isMorning ? 'morning' : 'evening';
+            const suggestedDhikrLabel = isMorning ? 'Dzikir Pagi' : 'Dzikir Petang';
+            const suggestedIcon = isMorning ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />;
+            
+            return (
+              <Link 
+                to={`/${suggestedDhikr}`}
+                className="flex items-center justify-center space-x-2 bg-white/20 hover:bg-white/30 py-2.5 px-4 rounded-md transition-colors duration-200 w-full"
+              >
+                {suggestedIcon}
+                <span className="font-semibold">{suggestedDhikrLabel}</span>
+              </Link>
+            );
+          })()}
         </div>
       </div>
     </>

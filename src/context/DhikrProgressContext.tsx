@@ -112,3 +112,6 @@ export const useProgress = (): ProgressContextType => {
   }
   return context;
 };
+
+// Export alias for compatibility
+export const useDhikrProgress = useProgress;

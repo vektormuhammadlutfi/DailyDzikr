@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DhikrCard from '../components/DhikrCard';
 import ProgressBar from '../components/ProgressBar';
 import { getEveningDhikr } from '../data/dhikrData';
 import { useProgress } from '../context/DhikrProgressContext';
+import { useStreak } from '../context/StreakContext';
 import { RotateCcw } from 'lucide-react';
 
 const EveningDhikrPage: React.FC = () => {
   const eveningDhikr = getEveningDhikr();
-  const { resetProgress } = useProgress();
+  const { resetProgress, progress } = useProgress();
+  const { checkDhikrCompletion } = useStreak();
+  
+  // Check if all evening dhikr completed
+  useEffect(() => {
+    const allCompleted = eveningDhikr.every(dhikr => {
+      const dhikrProgress = progress[dhikr.id];
+      return dhikrProgress && dhikrProgress.count >= dhikr.repetition;
+    });
+    
+    if (allCompleted) {
+      checkDhikrCompletion('evening');
+    }
+  }, [progress, eveningDhikr, checkDhikrCompletion]);
   
   const handleReset = () => {
     if (window.confirm('Apakah Anda yakin ingin mengatur ulang progress dzikir petang?')) {

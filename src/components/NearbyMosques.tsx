@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet';
-import { MapPin, Navigation } from 'lucide-react';
+import { MapPin, Navigation, Clock } from 'lucide-react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -25,6 +25,14 @@ const mosqueIcon = new L.Icon({
   popupAnchor: [0, -35],
 });
 
+// Custom 24-hour mosque icon (with different color)
+const mosque24Icon = new L.Icon({
+  iconUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkYzI2MjYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTIgMnY2Ii8+PGNpcmNsZSBjeD0iMTIiIGN5PSI4IiByPSIyIi8+PHBhdGggZD0iTTYgMTJoMTJ2NmEyIDIgMCAwIDEtMiAySDhhMiAyIDAgMCAxLTItMnYtNnoiLz48cGF0aCBkPSJNMiAxMmg0Ii8+PHBhdGggZD0iTTE4IDEyaDQiLz48L3N2Zz4=',
+  iconSize: [35, 35],
+  iconAnchor: [17, 35],
+  popupAnchor: [0, -35],
+});
+
 const userIcon = new L.Icon({
   iconUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkYzI2MjYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjAgMTB2OGEyIDIgMCAwIDEtMiAySDZhMiAyIDAgMCAxLTItMnYtOCIvPjxwYXRoIGQ9Ik0xMiAxNHYtNCIvPjxwYXRoIGQ9Ik0xMiAyYTMgMyAwIDAgMCAzIDMgMyAzIDAgMCAxIDMgM3YxYTIgMiAwIDAgMS0yIDJIMmEyIDIgMCAwIDEtMi0yVjhhMyAzIDAgMCAxIDMtMyAzIDMgMCAwIDAgMy0zeiIvPjwvc3ZnPg==',
   iconSize: [30, 30],
@@ -38,6 +46,8 @@ interface Mosque {
   lat: number;
   lon: number;
   distance?: number;
+  opening_hours?: string;
+  is24Hours?: boolean;
 }
 
 // Component to recenter map when location changes
@@ -103,6 +113,10 @@ const NearbyMosques: React.FC = () => {
           const lat = element.lat || element.center?.lat;
           const lon = element.lon || element.center?.lon;
           const name = element.tags?.name || 'Masjid';
+          const opening_hours = element.tags?.opening_hours || '';
+          
+          // Check if mosque is open 24 hours
+          const is24Hours = opening_hours === '24/7' || opening_hours.toLowerCase().includes('24');
           
           // Calculate distance
           const distance = calculateDistance(
@@ -118,6 +132,8 @@ const NearbyMosques: React.FC = () => {
             lat,
             lon,
             distance,
+            opening_hours,
+            is24Hours,
           };
         });
 
@@ -164,7 +180,7 @@ const NearbyMosques: React.FC = () => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
       <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 border-b border-gray-200 dark:border-gray-700">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mb-3">
           <div className="flex items-center space-x-2">
             <MapPin size={20} className="text-emerald-600 dark:text-emerald-400" />
             <h3 className="font-semibold text-gray-800 dark:text-gray-100">
@@ -181,6 +197,22 @@ const NearbyMosques: React.FC = () => {
             <option value={2000}>2km</option>
             <option value={5000}>5km</option>
           </select>
+        </div>
+        
+        {/* Legend */}
+        <div className="flex flex-wrap gap-3 text-xs">
+          <div className="flex items-center gap-1.5">
+            <div className="w-4 h-4 rounded-full bg-emerald-600 dark:bg-emerald-500"></div>
+            <span className="text-gray-700 dark:text-gray-300">Masjid</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <div className="w-4 h-4 rounded-full bg-red-600 dark:bg-red-500"></div>
+            <span className="text-gray-700 dark:text-gray-300">Masjid 24 Jam</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <div className="w-4 h-4 rounded-full bg-blue-500 dark:bg-blue-400"></div>
+            <span className="text-gray-700 dark:text-gray-300">Lokasi Anda</span>
+          </div>
         </div>
       </div>
 
@@ -228,13 +260,30 @@ const NearbyMosques: React.FC = () => {
 
               {/* Mosques */}
               {mosques.map((mosque) => (
-                <Marker key={mosque.id} position={[mosque.lat, mosque.lon]} icon={mosqueIcon}>
+                <Marker 
+                  key={mosque.id} 
+                  position={[mosque.lat, mosque.lon]} 
+                  icon={mosque.is24Hours ? mosque24Icon : mosqueIcon}
+                >
                   <Popup>
                     <div className="p-1">
-                      <strong>{mosque.name}</strong>
+                      <div className="flex items-center gap-2">
+                        <strong>{mosque.name}</strong>
+                        {mosque.is24Hours && (
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-100 text-red-600 text-xs font-semibold rounded-full">
+                            <Clock size={12} />
+                            24 Jam
+                          </span>
+                        )}
+                      </div>
                       {mosque.distance && (
                         <p className="text-xs text-gray-600 mt-1">
                           ~{mosque.distance.toFixed(2)} km
+                        </p>
+                      )}
+                      {mosque.opening_hours && !mosque.is24Hours && (
+                        <p className="text-xs text-gray-500 mt-1">
+                          Jam buka: {mosque.opening_hours}
                         </p>
                       )}
                     </div>
@@ -263,12 +312,25 @@ const NearbyMosques: React.FC = () => {
                       </span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium text-gray-800 dark:text-gray-200 truncate">
-                        {mosque.name}
-                      </p>
+                      <div className="flex items-center gap-2">
+                        <p className="font-medium text-gray-800 dark:text-gray-200 truncate">
+                          {mosque.name}
+                        </p>
+                        {mosque.is24Hours && (
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-semibold rounded-full flex-shrink-0">
+                            <Clock size={12} />
+                            24 Jam
+                          </span>
+                        )}
+                      </div>
                       {mosque.distance && (
                         <p className="text-sm text-gray-600 dark:text-gray-400">
                           ~{mosque.distance.toFixed(2)} km dari lokasi Anda
+                        </p>
+                      )}
+                      {mosque.opening_hours && !mosque.is24Hours && (
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                          Jam buka: {mosque.opening_hours}
                         </p>
                       )}
                     </div>
