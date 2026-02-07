@@ -2,19 +2,36 @@ import React, { useState } from 'react';
 import { usePreferences } from '../context/PreferencesContext';
 import { useDhikrProgress } from '../context/DhikrProgressContext';
 import { useStreak } from '../context/StreakContext';
-import { Moon, Sun, Type, Bell, Globe, Trash2, RotateCcw, Info, AlertTriangle } from 'lucide-react';
+import { useDailyReading } from '../context/DailyReadingContext';
+import { Moon, Sun, Type, Bell, Globe, Trash2, RotateCcw, Info, AlertTriangle, User, Target } from 'lucide-react';
 import { toast } from 'sonner';
 
 const SettingsPage: React.FC = () => {
   const { preferences, updatePreferences } = usePreferences();
   const { resetProgress } = useDhikrProgress();
   const { resetStreak } = useStreak();
+  const { setDailyTarget } = useDailyReading();
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [userName, setUserName] = useState(preferences.userName || '');
+  const [dailyTarget, setDailyTargetInput] = useState(preferences.dailyReadingTarget?.toString() || '10');
   
   const handleFontSizeChange = (size: 'small' | 'medium' | 'large') => {
     updatePreferences({ fontSize: size });
     toast.success('Ukuran huruf diubah');
+  };
+
+  const handleSaveUserName = () => {
+    updatePreferences({ userName: userName.trim() || undefined });
+    toast.success('Nama berhasil disimpan!');
+  };
+
+  const handleSaveDailyTarget = () => {
+    const target = parseInt(dailyTarget) || 10;
+    const validTarget = Math.max(1, Math.min(target, 604)); // 1-604 pages
+    updatePreferences({ dailyReadingTarget: validTarget });
+    setDailyTarget(validTarget);
+    toast.success(`Target harian diubah menjadi ${validTarget} halaman!`);
   };
 
   const handleResetProgress = () => {
@@ -53,6 +70,75 @@ const SettingsPage: React.FC = () => {
         <span className="mr-2">⚙️</span>
         Pengaturan
       </h2>
+      
+      {/* Profil & Target */}
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border-2 border-gray-200 dark:border-gray-700 overflow-hidden mb-4">
+        <div className="bg-gradient-to-r from-orange-50 to-amber-50 dark:from-gray-700 dark:to-gray-700 px-4 py-3 border-b border-gray-200 dark:border-gray-600">
+          <h3 className="font-bold text-gray-800 dark:text-white">Profil & Target</h3>
+        </div>
+        
+        <div className="divide-y divide-gray-200 dark:divide-gray-700">
+          {/* Nama Pengguna */}
+          <div className="px-4 py-4">
+            <div className="flex items-center mb-3">
+              <div className="bg-orange-100 dark:bg-orange-900/30 p-2.5 rounded-lg mr-3">
+                <User size={20} className="text-orange-600 dark:text-orange-400" />
+              </div>
+              <div>
+                <h4 className="text-gray-800 dark:text-white font-medium">Nama Anda</h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Akan ditampilkan di halaman utama</p>
+              </div>
+            </div>
+            
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                placeholder="Masukkan nama Anda"
+                className="flex-1 px-4 py-2 rounded-lg border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:border-orange-500 dark:focus:border-orange-400 focus:outline-none"
+              />
+              <button
+                onClick={handleSaveUserName}
+                className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg font-medium transition-colors"
+              >
+                Simpan
+              </button>
+            </div>
+          </div>
+
+          {/* Target Harian */}
+          <div className="px-4 py-4">
+            <div className="flex items-center mb-3">
+              <div className="bg-amber-100 dark:bg-amber-900/30 p-2.5 rounded-lg mr-3">
+                <Target size={20} className="text-amber-600 dark:text-amber-400" />
+              </div>
+              <div>
+                <h4 className="text-gray-800 dark:text-white font-medium">Target Membaca Harian</h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Jumlah halaman Al-Qur'an per hari (1-604)</p>
+              </div>
+            </div>
+            
+            <div className="flex gap-2">
+              <input
+                type="number"
+                value={dailyTarget}
+                onChange={(e) => setDailyTargetInput(e.target.value)}
+                min="1"
+                max="604"
+                placeholder="10"
+                className="flex-1 px-4 py-2 rounded-lg border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:border-amber-500 dark:focus:border-amber-400 focus:outline-none"
+              />
+              <button
+                onClick={handleSaveDailyTarget}
+                className="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg font-medium transition-colors"
+              >
+                Simpan
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       
       {/* Tampilan */}
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border-2 border-gray-200 dark:border-gray-700 overflow-hidden mb-4">

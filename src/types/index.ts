@@ -27,4 +27,19 @@ export interface UserPreferences {
   showTranslation: boolean;
   fontSize: 'small' | 'medium' | 'large';
   language: 'en' | 'id';
+  userName?: string;
+  dailyReadingTarget?: number; // pages per day
+}
+
+export interface DailyVerse {
+  id: string;
+  arabic: string;
+  translation: string;
+  source: string; // e.g., "QS. Al-Muzzammil: 4"
+}
+
+export interface DailyReading {
+  date: string;
+  pagesRead: number;
+  target: number;
 }

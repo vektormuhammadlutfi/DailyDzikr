@@ -11,7 +11,9 @@ const defaultPreferences: UserPreferences = {
   showTransliteration: true,
   showTranslation: true,
   fontSize: 'medium',
-  language: 'id'
+  language: 'id',
+  userName: undefined,
+  dailyReadingTarget: 10
 };
 
 const PreferencesContext = createContext<PreferencesContextType | undefined>(undefined);

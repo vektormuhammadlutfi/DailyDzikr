@@ -1,32 +1,57 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sun, Moon, HandHeart } from 'lucide-react';
+import { Sun, Moon, HandHeart, BookMarked } from 'lucide-react';
 import PrayerTimeAlert from '../components/PrayerTimeAlert';
 import NearbyMosques from '../components/NearbyMosques';
-import StreakDisplay from '../components/StreakDisplay';
 import InstallPrompt from '../components/InstallPrompt';
+import UserGreeting from '../components/UserGreeting';
+import VerseOfTheDay from '../components/VerseOfTheDay';
+import DailyTarget from '../components/DailyTarget';
+import { useDailyReading } from '../context/DailyReadingContext';
 
 const HomePage: React.FC = () => {
+  const { incrementPages } = useDailyReading();
+
+  const handleContinueReading = () => {
+    incrementPages();
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* PWA Install Prompt */}
       <InstallPrompt />
       
       <div className="container mx-auto px-4 py-8 mb-16">
+        {/* User Greeting & Statistics */}
+        <UserGreeting />
 
         {/* Prayer Time Alert Box */}
         <div className="mb-6">
           <PrayerTimeAlert />
         </div>
 
+        {/* Verse of the Day */}
+        <div className="mb-6">
+          <VerseOfTheDay />
+        </div>
+
+        {/* Daily Target */}
+        <div className="mb-6">
+          <DailyTarget />
+        </div>
+
+        {/* Continue Reading Button */}
+        <button
+          onClick={handleContinueReading}
+          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 dark:from-blue-700 dark:to-indigo-700 dark:hover:from-blue-800 dark:hover:to-indigo-800 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all mb-6 flex items-center justify-center gap-2"
+        >
+          <BookMarked className="h-5 w-5" />
+          <span>Lanjut Tilawah</span>
+        </button>
+
         {/* Nearby Mosques Map */}
         <div className="mb-8">
           <NearbyMosques />
-        </div>
-
-        {/* Streak Display */}
-        <div className="mb-8">
-          <StreakDisplay />
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
